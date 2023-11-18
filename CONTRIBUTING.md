@@ -15,4 +15,9 @@ If you create new widgets please add them to our [demo](https://github.com/gwtbo
 
 Thank you!
 
+## Notes on Building
+
+Compilation currently seems to fail with JDK 17. Until some parts of GwtBootstrap 
+are upgraded, JDK 8 is recommended for building.
+
 [1]: https://groups.google.com/forum/?fromgroups#!forum/gwtbootstrap3

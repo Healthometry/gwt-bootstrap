@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- See description of deployment process at http://central.sonatype.org/pages/ossrh-guide.html -->
 
-    <groupId>org.gwtbootstrap3</groupId>
-    <artifactId>gwtbootstrap3-parent</artifactId>
+    <groupId>org.gwtbootstrap</groupId>
+    <artifactId>gwtbootstrap-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2-SNAPSHOT</version>
-    <name>GwtBootstrap3 Parent</name>
-    <description>GWT wrapper for the Bootstrap front-end framework</description>
-    <url>http://gwtbootstrap3.org</url>
+    <version>1.1.0-SNAPSHOT</version>
+    <name>GwtBootstrap Parent</name>
+    <description>Bootstrap UX for GWT apps</description>
+    <url>https://gwtbootstrap.org</url>
 
     <prerequisites>
         <maven>3.2.1</maven>
     </prerequisites>
 
+    <!-- TODO: Find use for or remove this to prevent confusion with gwtbootstrap3.
     <scm>
         <connection>scm:git:git@github.com:gwtbootstrap3/gwtbootstrap3.git</connection>
         <developerConnection>scm:git:git@github.com:gwtbootstrap3/gwtbootstrap3.git</developerConnection>
         <url>git@github.com:gwtbootstrap3/gwtbootstrap3.git</url>
         <tag>HEAD</tag>
     </scm>
+    -->
 
     <licenses>
         <license>
@@ -32,40 +35,20 @@
 
     <developers>
         <developer>
-            <id>svenjacobs</id>
-            <name>Sven Jacobs</name>
-            <email>mail@svenjacobs.com</email>
-            <url>http://svenjacobs.com/</url>
+            <id>bbrudnoy</id>
+            <name>Boris Brudnoy</name>
+            <email>boris.brudnoy@healthometry.com</email>
+            <!-- TODO: <url>http://svenjacobs.com/</url> -->
             <roles>
                 <role>architect</role>
                 <role>developer</role>
             </roles>
-            <timezone>UTC+1</timezone>
-        </developer>
-        <developer>
-            <id>jgodi</id>
-            <name>Joshua Godi</name>
-            <email>joshuagodi@gmail.com</email>
-            <url>http://joshuagodi.com/</url>
-            <roles>
-                <role>architect</role>
-                <role>developer</role>
-            </roles>
-            <timezone>UTC+6</timezone>
-        </developer>
-        <developer>
-            <id>sjardine</id>
-            <name>Steven Jardine</name>
-            <email>steven.jardine@gmail.com</email>
-            <roles>
-                <role>developer</role>
-            </roles>
-            <timezone>UTC-7</timezone>
+            <timezone>UTC-5</timezone>
         </developer>
     </developers>
 
     <modules>
-        <module>gwtbootstrap3</module>
+        <module>gwtbootstrap</module>
     </modules>
 
     <properties>
@@ -166,7 +149,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>gwt-maven-plugin</artifactId>
-                    <version>${gwt.version}</version>
+                    <version>${gwt-maven-plugin.version}</version>
                     <executions>
                         <execution>
                             <goals>
