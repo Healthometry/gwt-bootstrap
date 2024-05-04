@@ -55,11 +55,12 @@ public class GwtBootstrap3EntryPoint implements EntryPoint {
         ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.gwtBootstrap3().getText())
                 .setWindow(ScriptInjector.TOP_WINDOW)
                 .inject();
-        if (!isjQueryLoaded()) {
-            ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.jQuery().getText())
-                    .setWindow(ScriptInjector.TOP_WINDOW)
-                    .inject();
-        }
+
+//        if (!isjQueryLoaded()) {
+//            ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.jQuery().getText())
+//                    .setWindow(ScriptInjector.TOP_WINDOW)
+//                    .inject();
+//        }
 
         if (!isBootstrapLoaded()) {
             ScriptInjector.fromString(GwtBootstrap3ClientBundle.INSTANCE.bootstrap().getText())
