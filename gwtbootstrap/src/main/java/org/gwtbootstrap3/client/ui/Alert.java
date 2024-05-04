@@ -20,6 +20,11 @@ package org.gwtbootstrap3.client.ui;
  * #L%
  */
 
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.ui.HasHTML;
+import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 import org.gwtbootstrap3.client.shared.event.AlertCloseEvent;
 import org.gwtbootstrap3.client.shared.event.AlertCloseHandler;
 import org.gwtbootstrap3.client.shared.event.AlertClosedEvent;
@@ -33,13 +38,7 @@ import org.gwtbootstrap3.client.ui.constants.AlertType;
 import org.gwtbootstrap3.client.ui.constants.ButtonDismiss;
 import org.gwtbootstrap3.client.ui.constants.Styles;
 import org.gwtbootstrap3.client.ui.html.Div;
-import org.gwtbootstrap3.client.ui.html.Text;
-
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.Event;
-import com.google.gwt.user.client.ui.HasText;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.web.bindery.event.shared.HandlerRegistration;
+import org.gwtbootstrap3.client.ui.html.Span;
 
 /**
  * Alert block.
@@ -51,10 +50,10 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
  * @see org.gwtbootstrap3.client.shared.event.AlertCloseEvent
  * @see org.gwtbootstrap3.client.shared.event.AlertClosedEvent
  */
-public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType>, HasResponsiveness {
+public class Alert extends Div implements HasWidgets, HasHTML, HasType<AlertType>, HasResponsiveness {
     private static final String CLOSE = "close";
 
-    private final Text text = new Text();
+    private final Span html = new Span();
     private final CloseButton closeButton = new CloseButton();
 
     private final HandlerRegistration closedHandlerReg;
@@ -79,21 +78,21 @@ public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType
     /**
      * Builds a default alert with the desired text
      *
-     * @param text text for the alert
+     * @param html text for the alert
      */
-    public Alert(final String text) {
+    public Alert(final String html) {
         this();
-        setText(text);
+        setText(html);
     }
 
     /**
      * Builds an alert with the desired text and type
      *
-     * @param text text for the alert
+     * @param html text for the alert
      * @param type type for the alert
      */
-    public Alert(final String text, final AlertType type) {
-        this(text);
+    public Alert(final String html, final AlertType type) {
+        this(html);
         setType(type);
     }
 
@@ -118,7 +117,7 @@ public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType
      */
     @Override
     public String getText() {
-        return text.getText();
+        return html.getText();
     }
 
     /**
@@ -126,8 +125,8 @@ public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType
      */
     @Override
     public void setText(final String text) {
-        this.text.setText(text);
-        insert(this.text, 0);
+        this.html.setText(text);
+        insert(this.html, 0);
     }
 
     /**
@@ -239,7 +238,6 @@ public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType
         return addHandler(handler, AlertClosedEvent.getType());
     }
 
-    // @formatter:off
     private void alert(final Element e, final String arg) {
         JQuery.jQuery(e).alert(arg);
     }
@@ -259,5 +257,22 @@ public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType
     private void unbindJavaScriptEvents(final Element e) {
         JQuery.jQuery(e).off("close.bs.alert");
         JQuery.jQuery(e).off("closed.bs.alert");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getHTML() {
+        return html.getHTML();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setHTML(String html) {
+        this.html.setHTML(html);
+        insert(this.html, 0);
     }
 }
