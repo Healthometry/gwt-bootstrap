@@ -18,6 +18,29 @@
  * #L%
  */
 
+/**
+ * Creates a property on a parent object if it doesn't already exist, enabling safe
+ * namespace construction for the gwt-bootstrap library.
+ *
+ * This function implements a defensive programming pattern that prevents accidental
+ * overwrites of existing properties. It's particularly useful for establishing
+ * nested object hierarchies that mirror Java package structures in JavaScript.
+ *
+ * @param {Object} parent - The parent object to which the new property will be added.
+ *                         This is typically an existing namespace object like 'org'
+ *                         or 'org.gwtbootstrap3'.
+ *
+ * @param {string} name - The name of the property to create. This can be a simple
+ *                       identifier like 'client' or 'ui'.
+ *
+ * @param {*} value - The value to assign to the new property. This can be an empty
+ *                    object ({}) for namespace creation or a function for method
+ *                    definition.
+ *
+ * @returns {void}
+ *
+ * @throws {TypeError} Implicitly throws if parent is null or undefined
+ */
 function _gwtbootstrap3_Create(parent, name, value) {
     if (typeof parent[name] === 'undefined') parent[name] = value;
 }
