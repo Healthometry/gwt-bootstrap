@@ -8,7 +8,7 @@
     <groupId>org.gwtbootstrap</groupId>
     <artifactId>gwtbootstrap-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>4.0.0-SNAPSHOT</version>
     <name>GwtBootstrap Parent</name>
     <description>Bootstrap UX for GWT apps</description>
     <url>https://gwtbootstrap.org</url>
@@ -63,9 +63,9 @@
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-        <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.11.2</maven-javadoc-plugin.version>
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-        <maven-source-plugin.version>2.4</maven-source-plugin.version>
+        <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.6</nexus-staging-maven-plugin.version>
 
         <gwt.version>2.9.0</gwt.version>
@@ -311,12 +311,9 @@
             </build>
         </profile>
 
-        <!-- Disable doclint on JDK 8 -->
+        <!-- Disable doclint -->
         <profile>
             <id>nodoclint</id>
-            <activation>
-                <jdk>1.8</jdk>
-            </activation>
             <build>
                 <pluginManagement>
                     <plugins>
@@ -324,7 +321,7 @@
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-javadoc-plugin</artifactId>
                             <configuration>
-                                <additionalparam>-Xdoclint:none</additionalparam>
+                                <doclint>none</doclint>
                             </configuration>
                         </plugin>
                     </plugins>
